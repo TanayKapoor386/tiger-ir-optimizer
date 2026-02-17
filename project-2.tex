@@ -52,12 +52,42 @@ which is the number of instructions executed by an IR interpreter during an exec
 Please note that this is a different goal from minimizing the number of instructions in a program,
 which is called the \emph{static instruction count},
 as sometimes it is possible to insert more static instructions to
-obtain a reduced dynamic instruction count.
+obtain a reduced dynamic instruction count. More specifically:
+\begin{itemize}
+    \item \textit{Static Instruction Count:} It is the total number of instructions present in the compiled IR. It is a spatial measurement of the program's \textit{size}.
+    \item \textit{Dynamic Instruction Count:} It is the total number of instructions actually executed by the IR interpreter/processor during a specific run of the program. It is a measurement of the program's \textit{execution time}.
+\end{itemize}
+Both of these metrics could be understood using a simple example given below:
+
+\noindent % Prevents paragraph indentation
+\begin{minipage}{0.45\textwidth}
+    \begin{center}
+    \begin{lstlisting}
+    1:  assign i = 0
+    2:  label LOOP_START
+    3:  compare i < 100
+    4:  jump_if_false EXIT
+    5:  call some_function()
+    6:  add i = i + 1
+    7:  jump LOOP_START
+    8:  label EXIT
+        \end{lstlisting}
+    \end{center}
+\end{minipage}%
+\hfill% % Fills space between minipages
+\begin{minipage}{0.45\textwidth}
+\begin{itemize}
+    \item Static Count: 8 instructions.
+    \item Dynamic Count: Approximately 500+ instructions (the loop body executes 100 times, plus the initial setup and exit).
+\end{itemize}
+\end{minipage}
+
 As indicated below, we identify a reference optimization (dead code
 elimination using reaching definitions) that suffices to obtain full
 credit.  However, there is no restriction on which optimizations your optimizer should
 contain, as long as they are correct, and meet the dynamic instruction count
-performance goals outlined below in Section~\ref{sec:test}.
+performance goals outlined below in Section~\ref{sec:test}. For correctness, any program $P$ that is subject to an optimization $O$, the output program $O(P)$ must be I/O equivalent to $P$. That is:
+\[ \forall x, P(x) \equiv (O(P))(x) \]
 
 The deliverables for the project are a design document and code
 submission, which are described below in Sections~\ref{sec:opt} and \ref{sec:test}.
@@ -187,5 +217,6 @@ The deliverable files are:
 
 \section{Collaboration}
 The collaboration policy for Project-2 is same as collaboration policy of Project-1.
+
 
 \end{document}
