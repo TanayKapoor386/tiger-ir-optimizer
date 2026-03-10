@@ -1,0 +1,17 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Claude workspace files
+.claude/
+
+# OS files
+.DS_Store
+
+# Build output (common Java builds)
+out/
+target/
+build/
+
+# Logs
+*.log
