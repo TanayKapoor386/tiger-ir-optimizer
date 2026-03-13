@@ -8,10 +8,13 @@
 # OS files
 .DS_Store
 
-# Build output (common Java builds)
+# Build output
 out/
 target/
 build/
+
+# Java compiled files
+*.class
 
 # Logs
 *.log
