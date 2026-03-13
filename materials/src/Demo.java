@@ -40,7 +40,7 @@ public class Demo {
                         // prints to wherever I specified the path
                         irPrinter.printInstruction(instruction);
                         // stdout test
-                        System.out.println("hello");
+                        System.out.println("hello, got here with a new instruction in the IR that adds a constant to an array");
                     }
                 }
             }
@@ -55,7 +55,7 @@ public class Demo {
             // Iterate over the List<IRVariableOperand> field in IRProgram
             for (IRVariableOperand v : function.variables) {
                 IRType type = v.type;
-                System.out.printf("IRVariableOperand's IRType: %s", v.type.toString());
+                System.out.printf("IRVariableOperand's %s IRType: %s\n", v.getName(), v.type.toString());
                 // For each unique data type, only one IRType object will be created
                 // so that IRType objects can be compared using '=='
                 /*

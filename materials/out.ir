@@ -1,7 +1,7 @@
 #start_function
 int fib(int n):
-int-list: t1, t2, x, r, a[10], b[1]
-float-list:
+int-list: a[10], r, b[1], x, t1, t2
+float-list: 
     assign, r, 1
     array_store, 1, a, 0
     brgt, if_label0, n, 1
@@ -21,10 +21,11 @@ end:
 #start_function
 void main():
 int-list: x, y, z
-float-list:
+float-list: 
     callr, x, geti
     callr, z, fib, x
     assign, x, z
     call, puti, x
     call, putc, 10
 #end_function
+

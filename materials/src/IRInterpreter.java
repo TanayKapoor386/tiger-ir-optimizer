@@ -384,15 +384,15 @@ public class IRInterpreter {
                 varMap.put(variable.getName(), arr);
                 if (arrayType.getElementType() == IRIntType.get())
                     for (int i = 0; i < arr.length; i++)
-                        arr[i] = new Integer(0);
+                        arr[i] = (int) 0;
                 else
                     for (int i = 0; i < arr.length; i++)
-                        arr[i] = new Float(0);
+                        arr[i] = (float) 0;
             } else {
                 if (variable.type == IRIntType.get())
-                    varMap.put(variable.getName(), new Integer(0));
+                    varMap.put(variable.getName(), (int) 0);
                 else
-                    varMap.put(variable.getName(), new Float(0));
+                    varMap.put(variable.getName(), (float) 0);
             }
         }
 
